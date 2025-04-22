@@ -1,0 +1,58 @@
+package testpackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Gmail {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://www.gmail.com/");
+
+		driver.manage().window().maximize();
+
+		Thread.sleep(3000);
+
+		WebElement create = driver.findElement(By.xpath("//span[text()='Create account']"));
+		create.click();
+
+		WebElement personal = driver.findElement(By.xpath("//span[text()='For my personal use']"));
+		personal.click();
+
+		WebElement firstname = driver.findElement(By.xpath("//input[@id='firstName']"));
+		firstname.sendKeys("Jack");
+
+		WebElement lastname = driver.findElement(By.xpath("//input[@name='lastName']"));
+		lastname.sendKeys("Sparrow");
+
+		WebElement next = driver.findElement(By.xpath("//span[text()='Next']"));
+		next.click();
+		Thread.sleep(2000);
+		
+		WebElement month = driver.findElement(By.xpath("//select[@id='month']"));
+		month.click();
+		
+		Select s = new Select(month);
+		s.selectByVisibleText("March");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//input[@id='day']")).sendKeys("10");
+		driver.findElement(By.xpath("//input[@id='year']")).sendKeys("1975");
+		Thread.sleep(2000);
+		
+		WebElement gender = driver.findElement(By.xpath("//select[@id='gender']"));
+		gender.click();
+
+		Select s1 = new Select(gender);
+		s1.selectByIndex(2);
+
+		driver.findElement(By.xpath("//span[text()='Next']")).click();
+
+	}
+
+}
