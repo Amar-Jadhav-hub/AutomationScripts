@@ -44,13 +44,7 @@ public class Practice {
 //public class Practice {
 //
 //	public static void main(String[] args) throws InterruptedException {
-//
-////		//System.out.println('hello');
-////
-////		System.out.println('hii');
-////
-////		System.out.println("how r u");
-//
+
 //		WebDriver driver = new ChromeDriver();
 //
 //		driver.get("https://selenium08.blogspot.com/2020/01/drag-drop.html");
